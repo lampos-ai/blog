@@ -346,8 +346,8 @@ pre code{background:0;border:0;padding:0;font-size:inherit}
         <div class="stat-l">To activate any validated model, through 235B and beyond.</div>
       </div>
       <div class="stat">
-        <div class="stat-n cold">Zero</div>
-        <div class="stat-l">GPU memory held by a model that is not currently serving.</div>
+        <div class="stat-n cold">100+</div>
+        <div class="stat-l">Models available concurrently on your GPU fleet, all on-demand.</div>
       </div>
       <div class="stat">
         <div class="stat-n">0.99&ndash;1.01&times;</div>
@@ -373,7 +373,7 @@ pre code{background:0;border:0;padding:0;font-size:inherit}
         Allocation has to work that way today, because loading a large model takes minutes &mdash;
         five to ten for a 70B-class model, and longer as you move into the hundreds of billions of
         parameters. That is far longer than a traffic spike lasts. So every model's provision is sized
-        against its busiest hour and kept there for the rest of the day.
+        against its busiest hour and held continuously, regardless of actual demand.
       </p>
       <p>
         Utilization ends up capped by something other than demand. Not by how busy the silicon is, but
@@ -387,8 +387,9 @@ pre code{background:0;border:0;padding:0;font-size:inherit}
       <p class="eyebrow">Activation</p>
       <h2>Seconds to activate. Nothing held while idle.</h2>
       <p>
-        These are measured results on production-class models: the time from request to serving, and
-        the GPU memory the model occupies when it is not.
+        All models are available simultaneously. When a request arrives, Lampos activates the target
+        model on-demand &mdash; from idle to serving in seconds. The following are measured results on
+        production-class models.
       </p>
     </div>
 
@@ -421,8 +422,6 @@ pre code{background:0;border:0;padding:0;font-size:inherit}
         </tbody>
       </table>
     </div>
-    <p class="cap">Eight-GPU configurations. Every row reproduced the source model's output exactly. Idle GPUs carry no process belonging to the model and report only the small driver baseline the hardware always shows, so the capacity is genuinely available to something else. Taking a model out and bringing it back completes the full round trip in under ten seconds.</p>
-
     <div class="prose">
       <p>
         Deactivation is close to instant &mdash; under a second on the models measured &mdash; so the
