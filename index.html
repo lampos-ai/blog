@@ -182,6 +182,14 @@ th.num{text-align:right}
 .zero{color:var(--cold)}
 .cap{font-size:.83rem;line-height:1.6;color:var(--dim);margin:0 0 8px}
 
+/* ---------- demo video ---------- */
+.video-frame{
+  position:relative;width:100%;aspect-ratio:16/9;margin:28px 0 12px;
+  overflow:hidden;background:var(--rack);border:1px solid var(--rule-soft);border-radius:5px;
+}
+.video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.video-link{font-family:var(--mono);font-size:.78rem}
+
 /* ---------- callouts ---------- */
 .note{
   border-left:2px solid var(--rule);background:var(--rack);
@@ -304,6 +312,7 @@ pre code{background:0;border:0;padding:0;font-size:inherit}
         <li><a class="rail-link" href="#provision">Provisioned for peak</a></li>
         <li><a class="rail-link" href="#activate">Seconds to activate, nothing when idle</a></li>
         <li><a class="rail-link" href="#parity">Full speed once live</a></li>
+        <li><a class="rail-link" href="#demo">Watch the demo</a></li>
         <li><a class="rail-link" href="#talk">Talk to us</a></li>
       </ol>
     </nav>
@@ -467,6 +476,28 @@ pre code{background:0;border:0;padding:0;font-size:inherit}
         is visible to the customer sending the request.
       </p>
     </div>
+  </section>
+
+  <section class="sec" id="demo">
+    <div class="prose">
+      <p class="eyebrow">Product demo</p>
+      <h2>See Lampos in action</h2>
+      <p>
+        Watch a model move from idle to ready for inference with Lampos managing activation underneath
+        the serving layer.
+      </p>
+    </div>
+    <div class="video-frame">
+      <iframe
+        src="https://drive.google.com/file/d/164CqtwFXPr2nidJrXx8tANZ0OxGX4jn4/preview"
+        title="Lampos product demo"
+        loading="lazy"
+        allow="autoplay; fullscreen"
+        allowfullscreen></iframe>
+    </div>
+    <p class="cap">
+      If the player does not load, <a class="video-link" href="https://drive.google.com/file/d/164CqtwFXPr2nidJrXx8tANZ0OxGX4jn4/view?usp=sharing" target="_blank" rel="noopener noreferrer">open the demo in Google Drive</a>.
+    </p>
   </section>
 
   <footer class="close" id="talk">
